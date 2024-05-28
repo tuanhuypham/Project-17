@@ -958,7 +958,12 @@ input[type=text], input[type=password] {
     margin-bottom: 20px;
     border: 1px solid #ccc;
 }
-
+input[type=email], input[type=tel] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
 .remember-me-checkbox {
     margin-bottom: 20px;
 }

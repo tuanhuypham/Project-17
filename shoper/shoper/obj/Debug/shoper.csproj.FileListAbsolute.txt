@@ -74,3 +74,7 @@ D:\Project-17\shoper\shoper\obj\Debug\shoper.csproj.CoreCompileInputs.cache
 D:\Project-17\shoper\shoper\obj\Debug\shoper.csproj.CopyComplete
 D:\Project-17\shoper\shoper\obj\Debug\shoper.dll
 D:\Project-17\shoper\shoper\obj\Debug\shoper.pdb
+D:\Project-17\shoper\shoper\bin\EntityFramework.dll
+D:\Project-17\shoper\shoper\bin\EntityFramework.SqlServer.dll
+D:\Project-17\shoper\shoper\bin\EntityFramework.xml
+D:\Project-17\shoper\shoper\bin\EntityFramework.SqlServer.xml
