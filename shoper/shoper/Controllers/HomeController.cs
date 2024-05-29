@@ -9,15 +9,16 @@ namespace shoper.Controllers
 {
     public class HomeController : Controller
     {
-        readonly Model1 db;
+        private readonly Model1 db;
 
         public HomeController()
         {
-
+            db = new Model1();
         }
         public ActionResult Index()
         {
-            return View();
+            var products = db.Products.ToList();
+            return View(products);  
         }
     
         public ActionResult About()
@@ -39,7 +40,17 @@ namespace shoper.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
-
         
+        public ActionResult Best_Seller()
+        {
+            var bestSellers = db.Products.Where(p => p.BestSeller == true).ToList();
+            return View(bestSellers);
+        }
+       
+        public ActionResult Top_saler()
+        {
+            var hotProducts = db.Products.Where(p => p.HotProduct == true).ToList();
+            return View(hotProducts);
+        }
     }
 }

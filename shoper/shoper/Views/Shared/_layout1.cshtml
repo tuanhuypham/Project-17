@@ -73,8 +73,8 @@
                             </ul>
                         </li>
                         <li><a href="./products.html">Hangbag</a></li>
-                        <li><a href="./products.html">Best Seller</a></li>
-                        <li><a href="./products.html">Top Seller</a></li>
+                        <li><a href="@Url.Action("Best_Seller","Home")">Best Seller</a></li>
+                        <li><a href="@Url.Action("Top_Saler","Home")">Top Seller</a></li>
                     </ul>
                 </nav>
             </div>
@@ -142,6 +142,22 @@
                 loginForm.parentElement.classList.remove('hidden');
             });
         });
+
+        //
+
+        function showBestSeller() {
+            // Ẩn danh sách sản phẩm hiện tại
+            document.getElementById("productList").style.display = "none";
+            // Hiển thị danh sách sản phẩm Best Seller
+            // (Bạn cần lấy danh sách sản phẩm Best Seller từ dữ liệu hoặc server)
+        }
+
+        function showHotProduct() {
+            // Ẩn danh sách sản phẩm hiện tại
+            document.getElementById("productList").style.display = "none";
+            // Hiển thị danh sách sản phẩm Hot Product
+            // (Bạn cần lấy danh sách sản phẩm Hot Product từ dữ liệu hoặc server)
+        }
     </script>
 </body>
 
