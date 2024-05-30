@@ -78,3 +78,5 @@ D:\Project-17\shoper\shoper\bin\EntityFramework.dll
 D:\Project-17\shoper\shoper\bin\EntityFramework.SqlServer.dll
 D:\Project-17\shoper\shoper\bin\EntityFramework.xml
 D:\Project-17\shoper\shoper\bin\EntityFramework.SqlServer.xml
+D:\Project-17\shoper\shoper\bin\CommandLine.dll
+D:\Project-17\shoper\shoper\bin\CommandLine.xml

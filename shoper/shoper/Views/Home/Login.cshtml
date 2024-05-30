@@ -1,31 +1,41 @@
-﻿<div class="login-container container-fluid">
+﻿<div class="login-register-container container-fluid">
     <div class="control-form-login">
         <div class="login-form">
             <form class="form-login">
                 <div class="title-login-form">
-                    <h2>Login</h2>
+                    <h2>Log In</h2>
                 </div>
                 <input type="text" placeholder="Username">
                 <input type="password" placeholder="Password">
-                <button type="submit" class="submit-button">SUBMIT</button>
+                <button type="submit" class="submit-button">Log In</button>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="RememberMe" name="RememberMe" />
+                    <label for="RememberMe">Remember Me</label>
+                    <a href="#" id="forgetpassword">Forget Password</a>
+                </div>
             </form>
-            <a href="#" id="registerLink">Đăng Kí</a>
+            <div class="Description-Register">
+                <p>Do not have an account ?</p>
+                <a href="#" id="registerLink">Register</a>
+            </div>
         </div>
 
         <div class="register-form hidden">
             <form class="form-register">
                 <div class="title-register-form">
-                    <h2>Register</h2>
+                    <h3>Register</h3>
                 </div>
+                <input type="text" placeholder="Full Name" name="fullname">
+                <input type="email" placeholder="Email" name="email">
+                <input type="tel" id="phone" placeholder="Phone" name="phone" pattern="[+]{1}[0-9]{11,14}" required>
                 <input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password">
-                <input type="email" placeholder="Email" name="email">
-                <input type="text" placeholder="Full Name" name="fullname">
-                <input type="tel" id="phone" placeholder="phone" name="phone" pattern="[+]{1}[0-9]{11,14}" required>
-                <button type="submit" class="submit-button">REGISTER</button>
+                <button type="submit" class="submit-button">Register</button>
             </form>
-            <a href="#" id="loginLink">Đăng nhập</a>
-            
+            <div class="Description-LogIn">
+                <p>Do you already have an account ?</p>
+                <a href="#" id="loginLink">Log In</a>
+            </div>
         </div>
 
         <div class="login-form">
