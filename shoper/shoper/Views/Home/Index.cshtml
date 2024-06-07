@@ -2,15 +2,17 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<section class="header_text_edit">
+    <h4><span>Some Suggested Products For You</span></h4>
+</section>
 <section class="main-content">
     <div class="">
         <div class="">
             <ul class="thumbnails listing-products">
-
                 <li class="span3">
                     @if (Model.Count > 0)
                     {
-                        var product = Model.First(); 
+                        var product = Model.First();
                         <div class="product-box">
                             <a href="product_detail.html">
                                 <img alt="" src="~/Content/themes/images/ladies/1.jpg">
@@ -134,18 +136,6 @@
                     }
                 </li>
             </ul>
-            <hr>
-            <div class="pagination pagination-small pagination-centered">
-                <ul>
-                    <li><a href="#">Prev</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
-            </div>
         </div>
-        
     </div>
 </section>

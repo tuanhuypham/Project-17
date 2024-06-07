@@ -12,8 +12,8 @@ namespace shoper.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            Carts = new HashSet<Cart>();
-            Orders = new HashSet<Order>();
+            Cart = new HashSet<Cart>();
+            Orders = new HashSet<Orders>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -33,13 +33,17 @@ namespace shoper.Models
         [StringLength(100)]
         public string FullName { get; set; }
 
+        [Required]
+        [StringLength(10)]
+        public string Sex { get; set; }
+
         [StringLength(15)]
         public string Phone { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

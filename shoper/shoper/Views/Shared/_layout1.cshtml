@@ -40,15 +40,25 @@
                 <div class="account pull-right">
                     <ul class="user-menu">
                         <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="cart.html">Your Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="@Url.Action("Login","Home")">Login</a></li>
+                        @if (Session["Username"] != null)
+                        {
+                            <li><a href="@Url.Action("ShoppingCart","Home")">Shopping Cart</a></li>
+                            <li class="user-info-edit">
+                                <p>👤 @Session["Username"]</p>
+                            </li>
+                            <li><a href="@Url.Action("Logout","Home")">Log Out</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@{ Session["RedirectUrl"] = Url.Action("ShoppingCart","Home"); }@Url.Action("Login","Home")">Shopping Cart</a></li>
+                            <li><a href="@Url.Action("Login","Home")">Log In</a></li>
+                        }
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="wrapper" class="container">
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
@@ -81,9 +91,10 @@
         </section>
         <section class="header_text sub">
             <img class="pageBanner" src="~/Content/themes/images/pageBanner.png" alt="New products">
-            <h4><span>New products</span></h4>
+
         </section>
         @RenderBody()
+
         <section id="footer-bar">
             <div class="row">
                 <div class="span3">

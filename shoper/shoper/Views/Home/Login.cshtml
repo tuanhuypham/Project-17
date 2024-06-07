@@ -1,12 +1,15 @@
 ﻿<div class="login-register-container container-fluid">
     <div class="control-form-login">
         <div class="login-form">
-            <form class="form-login">
+            <form class="form-login" method="post" action="/Home/Login">
                 <div class="title-login-form">
                     <h2>Log In</h2>
                 </div>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Enter your username" id="Username" name="username">
+                <input type="password" placeholder="Enter your password" id="Password" name="password">
+                <div class="error-message">
+                    @ViewBag.Message
+                </div>
                 <button type="submit" class="submit-button">Log In</button>
                 <div class="checkbox-container">
                     <input type="checkbox" id="RememberMe" name="RememberMe" />
@@ -20,16 +23,27 @@
             </div>
         </div>
 
+
         <div class="register-form hidden">
-            <form class="form-register">
+            <form class="form-register" action="/Home/Register" method="post">
                 <div class="title-register-form">
                     <h3>Register</h3>
                 </div>
-                <input type="text" placeholder="Full Name" name="fullname">
-                <input type="email" placeholder="Email" name="email">
-                <input type="tel" id="phone" placeholder="Phone" name="phone" pattern="[+]{1}[0-9]{11,14}" required>
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
+                <input type="text" placeholder=" Enter your full name" name="FullName" required>
+                <div class="gender-selection">
+                    <div class="gender-option">
+                        <input type="radio" id="sex" name="Sex" value="Male" required>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="sex" name="Sex" value="Female" required>
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <input type="email" placeholder="Enter your email address" name="Email" required>
+                <input type="tel" id="phone" placeholder="Enter your phone number" name="Phone">
+                <input type="text" placeholder="Enter your username" name="Username" required>
+                <input type="password" placeholder="Enter your password" name="Password" required>
                 <button type="submit" class="submit-button">Register</button>
             </form>
             <div class="Description-LogIn">
