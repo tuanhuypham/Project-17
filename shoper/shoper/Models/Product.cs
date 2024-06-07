@@ -14,6 +14,7 @@ namespace shoper.Models
         {
             Carts = new HashSet<Cart>();
             OrderDetails = new HashSet<OrderDetail>();
+            ProductDetailPages = new HashSet<ProductDetailPage>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -42,5 +43,8 @@ namespace shoper.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductDetailPage> ProductDetailPages { get; set; }
     }
 }

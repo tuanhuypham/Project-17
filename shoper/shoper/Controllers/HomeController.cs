@@ -9,11 +9,11 @@ namespace shoper.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Model1 db;
+        private readonly Model db;
 
         public HomeController()
         {
-            db = new Model1();
+            db = new Model();
         }
         public ActionResult Index()
         {
@@ -52,5 +52,12 @@ namespace shoper.Controllers
             var hotProducts = db.Products.Where(p => p.HotProduct == true).ToList();
             return View(hotProducts);
         }
+        public ActionResult Product_Detail(int id)
+        {
+            ViewBag.ProductID = id;
+            var productDT = db.ProductDetailPages.ToList();
+            return View(productDT); // Truyền model tới view
+        }
     }
 }
+

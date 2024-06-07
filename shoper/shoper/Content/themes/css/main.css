@@ -1103,3 +1103,9 @@ input[type=tel], input[type=email] {
 .hidden {
     display: none;
 }
+.nav-edit li{
+    list-style : none;
+}
+.tab-content{
+    margin-left : 32px !important;
+}
