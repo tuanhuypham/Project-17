@@ -1,140 +1,29 @@
-﻿@model List<shoper.Models.Product>
+﻿﻿@model List<shoper.Models.Product>
 @{
     ViewBag.Title = "Home Page";
 }
-<section class="header_text_edit">
-    <h4><span>Some Suggested Products For You</span></h4>
-</section>
 <section class="main-content">
     <div class="">
         <div class="">
             <ul class="thumbnails listing-products">
-                <li class="span3">
-                    @if (Model.Count > 0)
+                @if (Model.Count > 0)
+                {
+                    int imageIndex = 1;
+                    foreach (var product in Model)
                     {
-                        var product = Model.First();
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/1.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
+                        <li class="span3">
+                            <div class="product-box">
+                                <a href='@Url.Action("Product_Detail", "Home", new { id = product.ProductID, imageIndex = imageIndex })'>
+                                    <img alt="" src="~/Content/themes/images/ladies/@(imageIndex.ToString() + ".jpg")">
+                                </a><br />
+                                <a href='@Url.Action("Product_Detail", "Home", new { id = product.ProductID, imageIndex = imageIndex })' class="title">@product.ProductName</a><br />
+                                <a href="#" class="category">@product.Description</a>
+                                <p class="price">$@product.Price</p>
+                            </div>
+                        </li>
+                        imageIndex++;
                     }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 1)
-                    {
-                        var product = Model[1];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/2.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 2)
-                    {
-                        var product = Model[2];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/3.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 3)
-                    {
-                        var product = Model[3];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/4.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 4)
-                    {
-                        var product = Model[4];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/5.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 5)
-                    {
-                        var product = Model[5];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/6.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 6)
-                    {
-                        var product = Model[6];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/7.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 7)
-                    {
-                        var product = Model[7];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/8.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
-                <li class="span3">
-                    @if (Model.Count > 8)
-                    {
-                        var product = Model[8];
-                        <div class="product-box">
-                            <a href="product_detail.html">
-                                <img alt="" src="~/Content/themes/images/ladies/9.jpg">
-                            </a><br />
-                            <a href="product_detail.html" class="title">@product.ProductName</a><br />
-                            <a href="#" class="category">@product.Description</a>
-                            <p class="price">$@product.Price</p>
-                        </div>
-                    }
-                </li>
+                }
             </ul>
         </div>
     </div>

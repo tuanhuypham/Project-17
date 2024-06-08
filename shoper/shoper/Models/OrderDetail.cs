@@ -20,7 +20,7 @@ namespace shoper.Models
 
         public decimal? UnitPrice { get; set; }
 
-        public virtual Orders Orders { get; set; }
+        public virtual Order Order { get; set; }
 
         public virtual Product Product { get; set; }
     }

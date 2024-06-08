@@ -1163,3 +1163,10 @@ h4{
 .row-edit{
     margin-left:0 !important
 }
+.nav-edit li {
+    list-style: none;
+}
+
+.tab-content {
+    margin-left: 32px !important;
+}

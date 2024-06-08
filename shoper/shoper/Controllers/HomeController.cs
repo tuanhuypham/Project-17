@@ -16,7 +16,7 @@ namespace shoper.Controllers
 
         public ActionResult Index()
         {
-            var products = db.Product.ToList();
+            var products = db.Products.ToList();
             return View(products);
         }
 
@@ -51,10 +51,10 @@ namespace shoper.Controllers
             customer.Password = form["Password"];
 
             // Tạo CustomerID tự động
-            int maxId = db.Customer.Any() ? db.Customer.Max(c => c.CustomerID) : 0;
+            int maxId = db.Customers.Any() ? db.Customers.Max(c => c.CustomerID) : 0;
             customer.CustomerID = maxId + 1;
 
-            db.Customer.Add(customer);
+            db.Customers.Add(customer);
             db.SaveChanges();
             return RedirectToAction("LogIn");
         }
@@ -69,15 +69,15 @@ namespace shoper.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            var users = db.Customer.Where(u => u.Username == username && u.Password == password).ToList();
+            var users = db.Customers.Where(u => u.Username == username && u.Password == password).ToList();
             if (users.Any())
             {
-                // Đăng nhập thành công
+                
                 foreach (var user in users)
                 {
                     if (user != null)
                     {
-                        // Đăng nhập thành công
+                
                         Session["Username"] = user.Username;
                         Session["Password"] = user.Password;
                         Session["Sex"] = user.Sex;
@@ -102,24 +102,32 @@ namespace shoper.Controllers
         [HttpPost]
         public ActionResult Logout()
         {
-            Session.Clear(); //this would remove all session variables
-            return RedirectToAction("Index");
+            Session["Username"] = null;
+            return View("Index");
         }
 
         public ActionResult Best_Seller()
         {
-            var bestSellers = db.Product.Where(p => p.BestSeller == true).ToList();
+            var bestSellers = db.Products.Where(p => p.BestSeller == true).ToList();
             return View(bestSellers);
         }
 
         public ActionResult Top_saler()
         {
-            var hotproducts = db.Product.Where(p => p.HotProduct == true).ToList();
+            var hotproducts = db.Products.Where(p => p.HotProduct == true).ToList();
             return View(hotproducts);
         }
+   
         public ActionResult ShoppingCart()
         {
+           
             return View();
+        }
+        public ActionResult Product_Detail(int id)
+        {
+            ViewBag.ProductID = id;
+            var productDT = db.ProductDetailPages.ToList();
+            return View(productDT); // Truyền model tới view
         }
     }
 }
