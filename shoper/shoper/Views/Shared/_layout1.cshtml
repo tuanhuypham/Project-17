@@ -32,26 +32,30 @@
     <div id="top-bar" class="container">
         <div class="row">
             <div class="span4">
-                <form method="POST" class="search_form">
-                    <input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
-                </form>
+                <a href="Index.html" class="logo pull-left">
+                    <img src="~/Content/themes/images/logo.png" class="site_logo" alt="">
+                </a>
             </div>
             <div class="span8">
                 <div class="account pull-right">
                     <ul class="user-menu">
-                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a class="bold-text-edit" href="@Url.Action("Index","Home")">Home</a></li>
                         @if (Session["Username"] != null)
                         {
-                            <li><a href="@Url.Action("ShoppingCart","Home")">Shopping Cart</a></li>
-                            <li class="user-info-edit">
-                                <p>👤 @Session["Username"]</p>
+                            <li><a class="bold-text-edit" href="@Url.Action("ShoppingCart","Home")">Shopping Cart</a></li>
+                            <li class="user-info-edit menu-item">
+                            <p class="">👤 @Session["Username"]</p>
+                                <div class="dropdown-content drop-menu">
+                                    <a href="@Url.Action("MyAccount","Home")">My Account</a>
+                                    <a href="@Url.Action("PurchaseOrder","Home")">Purchase Order</a>
+                                    <a href="@Url.Action("LogOut","Home")">Log Out</a>
+                                </div>
                             </li>
-                            <li><a href="@Url.Action("Logout","Home")">Log Out</a></li>
                         }
                         else
                         {
-                            <li><a href="@{ Session["RedirectUrl"] = Url.Action("ShoppingCart","Home"); }@Url.Action("Login","Home")">Shopping Cart</a></li>
-                            <li><a href="@Url.Action("Login","Home")">Log In</a></li>
+                            <li><a class="bold-text-edit" href="@{ Session["RedirectUrl"] = Url.Action("ShoppingCart","Home"); }@Url.Action("Login","Home")">Shopping Cart</a></li>
+                            <li><a class="bold-text-edit" href="@{ Session["RedirectUrl"] = Url.Action("Index","Home"); }@Url.Action("Login","Home")">Log In</a></li>
                         }
                     </ul>
                 </div>
@@ -62,34 +66,17 @@
     <div id="wrapper" class="container">
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
-                <a href="@Url.Action("Index","Home")" class="logo pull-left"><img src="~/Content/themes/images/logo.png" class="site_logo" alt=""></a>
-                <nav id="menu" class="pull-right">
+                <nav id="menu" class="pull-left">
                     <ul>
-                        <li>
-                            <a href="./products.html">Woman</a>
-                            <ul>
-                                <li><a href="./products.html">Lacinia nibh</a></li>
-                                <li><a href="./products.html">Eget molestie</a></li>
-                                <li><a href="./products.html">Varius purus</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./products.html">Man</a></li>
-                        <li>
-                            <a href="./products.html">Sport</a>
-                            <ul>
-                                <li><a href="./products.html">Gifts and Tech</a></li>
-                                <li><a href="./products.html">Ties and Hats</a></li>
-                                <li><a href="./products.html">Cold Weather</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./products.html">Hangbag</a></li>
-                        <li><a href="@Url.Action("Best_Seller","Home")">Best Seller</a></li>
-                        <li><a href="@Url.Action("Top_Saler","Home")">Top Seller</a></li>
+                        <li><a href="@Url.Action("Dress","Home")">Dress</a></li>
+                        <li><a href="@Url.Action("Sexy_Nightgown","Home")">Sexy Nightgown</a></li>
+                        <li><a href="@Url.Action("Hot_Products","Home")">Hot Products</a></li>
+                        <li><a href="@Url.Action("Best_Seller_Products","Home")">Best Seller Products</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
-        <section class="header_text sub">
+        <section class="header_text sub header_text-edit-layout">
             <img class="pageBanner" src="~/Content/themes/images/pageBanner.png" alt="New products">
 
         </section>

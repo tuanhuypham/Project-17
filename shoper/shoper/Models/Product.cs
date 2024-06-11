@@ -12,9 +12,9 @@ namespace shoper.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            Carts = new HashSet<Cart>();
-            OrderDetails = new HashSet<OrderDetail>();
-            ProductDetailPages = new HashSet<ProductDetailPage>();
+            Cart = new HashSet<Cart>();
+            OrderDetail = new HashSet<OrderDetail>();
+            ProductDetailPage = new HashSet<ProductDetailPage>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -36,15 +36,19 @@ namespace shoper.Models
 
         public bool? HotProduct { get; set; }
 
+        public bool? Dress { get; set; }
+
+        public bool? Sexy_Nightgown { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
 
         public virtual Category Category { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDetailPage> ProductDetailPages { get; set; }
+        public virtual ICollection<ProductDetailPage> ProductDetailPage { get; set; }
     }
 }

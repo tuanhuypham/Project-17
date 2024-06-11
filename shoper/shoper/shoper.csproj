@@ -139,8 +139,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Model1.cs" />
-    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDetailPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -256,10 +256,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_layout1.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Best_Seller.cshtml" />
-    <Content Include="Views\Home\Top_saler.cshtml" />
     <Content Include="Views\Home\ShoppingCart.cshtml" />
     <Content Include="Views\Home\Product_Detail.cshtml" />
+    <Content Include="Views\Home\Best_Seller_Products.cshtml" />
+    <Content Include="Views\Home\Hot_Products.cshtml" />
+    <Content Include="Views\Home\Dress.cshtml" />
+    <Content Include="Views\Home\Sexy_Nightgown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\themes\js\images\" />

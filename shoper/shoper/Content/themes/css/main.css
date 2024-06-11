@@ -86,7 +86,7 @@ a {
 
 #wrapper, #top-bar {
     background: #fff;
-    margin: 20px auto -30px auto;
+    margin: 20px auto 20px auto;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
@@ -191,7 +191,7 @@ iframe {
             display: inline-block;
             *display: inline;
             zoom: 1;
-            padding: 5px 12px;
+            padding: 5px 20px;
         }
 
             #top-bar .user-menu li:last-child {
@@ -456,6 +456,7 @@ section.navbar {
 #menu .sf-sub-indicator {
     display: none;
 }
+
 /* feature box
 ----------------------------------------------------------------------------- */
 .feature_box {
@@ -1041,9 +1042,6 @@ a#forgetpassword {
 }
 
 
-
-
-
 /*Desgin Register Form*/
 .register-form {
     padding: 50px; /* Adjust as needed */
@@ -1156,13 +1154,16 @@ h4{
     padding: 0 !important;
 }
 
-.user-info-edit p {
-    color: #eb4800;
-    font-weight: bold;
-}
+    .user-info-edit p {
+        color: #eb4800;
+        font-weight: bold;
+        font-size: 13px !important;
+    }
+
 .row-edit{
     margin-left:0 !important
 }
+
 .nav-edit li {
     list-style: none;
 }
@@ -1170,3 +1171,69 @@ h4{
 .tab-content {
     margin-left: 32px !important;
 }
+
+/*Tạo thêm đường kẻ sọc cho các thuộc tính Dress - Sexy Nightgown - Hot Products - Best Seller Products*/
+#menu ul li {
+    border-right: 1px solid #eb4800; /* Đường kẻ dọc màu cam*/
+    padding-right: 10px; /* Khoảng cách từ chữ đến đường kẻ */
+    margin-right: 10px; /* Khoảng cách từ đường kẻ đến chữ tiếp theo */
+}
+
+    #menu ul li:last-child {
+        border-right: none; /* Không vẽ đường kẻ cho phần tử cuối cùng */
+    }
+
+/*Tạo chữ in đậm và size chữ cho các thuộc tính Home - ShoppingCart - LogIn*/
+.bold-text-edit {
+    font-weight: bold;
+    font-size: 13px !important;
+}
+
+.drop-menu {
+    display: none;
+ 
+}
+
+.menu-item {
+    margin-right: 11px;
+}
+
+.menu-item:hover .drop-menu {
+    display: block;
+    background: white;
+    position: absolute;
+    right: 94px;
+    display: flex;
+    flex-wrap: nowrap;
+    top: 56px;
+    flex-direction: column;
+}
+
+.drop-menu a {
+    color: black;
+    font-weight: bold;
+    font-size: 13px !important;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left:4px;
+    padding-right :4px;
+}
+
+.header_text-edit-layout{
+    margin-top:16px;
+}
+
+/* Thiết lập phong cách bình thường cho các thẻ a */
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển đổi mượt mà */
+}
+
+/* Thêm hiệu ứng hover cho các thẻ a bên trong dropdown-content */
+    .dropdown-content a:hover {
+        background-color: #ff4500; /* Thay đổi màu nền khi hover */
+        color: white; /* Thay đổi màu chữ khi hover */
+    }

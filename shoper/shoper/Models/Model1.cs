@@ -8,17 +8,17 @@ namespace shoper.Models
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Models")
+            : base("name=Model1")
         {
         }
 
-        public virtual DbSet<Cart> Carts { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductDetailPage> ProductDetailPages { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductDetailPage> ProductDetailPage { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

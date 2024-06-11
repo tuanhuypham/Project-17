@@ -33,6 +33,10 @@ namespace shoper.Models
         [StringLength(50)]
         public string Colour { get; set; }
 
+        public bool? Dress { get; set; }
+
+        public bool? Sexy_Nightgown { get; set; }
+
         public virtual Product Product1 { get; set; }
     }
 }

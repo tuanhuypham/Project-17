@@ -1,9 +1,9 @@
 ﻿@model List<shoper.Models.Product>
 @{
-    ViewBag.Title = "Best_Seller";
+    ViewBag.Title = "Dress";
 }
 <section class="header_text_edit">
-    <h4><span>Best Seller</span></h4>
+    <h4><span>Dress</span></h4>
 </section>
 <div class="">
     <div class="">
@@ -12,7 +12,7 @@
             {
                 <li class="span3">
                     <div class="product-box">
-                        <a href="product_detail.html">
+                        <a href='@Url.Action("Product_Detail", "Home", new { id = product.ProductID})'>
                             <img alt="" src="~/Content/themes/images/ladies/@(product.ProductID).jpg">
                         </a><br />
                         <a href="product_detail.html" class="title">@product.ProductName</a><br />

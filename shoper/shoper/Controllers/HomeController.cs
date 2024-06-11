@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using shoper.Models;
@@ -14,9 +15,17 @@ namespace shoper.Controllers
             db = new Model1();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var products = db.Products.ToList();
+            var products = db.Product.ToList();
+            if (id.HasValue)
+            {
+                var user = db.Customer.Find(id);
+                if (user != null)
+                {
+                    ViewBag.UserName = user.CustomerID;
+                }
+            }
             return View(products);
         }
 
@@ -51,10 +60,10 @@ namespace shoper.Controllers
             customer.Password = form["Password"];
 
             // Tạo CustomerID tự động
-            int maxId = db.Customers.Any() ? db.Customers.Max(c => c.CustomerID) : 0;
+            int maxId = db.Customer.Any() ? db.Customer.Max(c => c.CustomerID) : 0;
             customer.CustomerID = maxId + 1;
 
-            db.Customers.Add(customer);
+            db.Customer.Add(customer);
             db.SaveChanges();
             return RedirectToAction("LogIn");
         }
@@ -69,52 +78,56 @@ namespace shoper.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            var users = db.Customers.Where(u => u.Username == username && u.Password == password).ToList();
+            var users = db.Customer.Where(u => u.Username == username && u.Password == password).ToList();
             if (users.Any())
             {
-                
                 foreach (var user in users)
                 {
                     if (user != null)
                     {
-                
+                        // Đăng nhập thành công
                         Session["Username"] = user.Username;
                         Session["Password"] = user.Password;
                         Session["Sex"] = user.Sex;
+                        Session["CustomerID"] = user.CustomerID;  //Lưu ID của người dùng
                         var redirectUrl = Session["RedirectUrl"];
                         if (redirectUrl != null)
                         {
                             Session["RedirectUrl"] = null;
                             return Redirect(redirectUrl.ToString());
                         }
-                        return RedirectToAction("Index");
+                        // Chuyển hướng đến trang Index với ID người dùng
+                        return RedirectToAction("Index", new { id = user.CustomerID });
                     }
                 }
             }
             else
             {
+                // Đăng nhập thất bại, hiển thị lỗi
                 ViewBag.Message = "Username or password is incorrect or does not exist.";
             }
             return View();
         }
 
-
-        [HttpPost]
+        [HttpGet]
         public ActionResult Logout()
         {
             Session["Username"] = null;
-            return View("Index");
+            Session["Password"] = null;
+            Session["Sex"] = null;
+            Session["CustomerID"] = null; // Xóa ID của người dùng
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Best_Seller()
+        public ActionResult Hot_Products()
         {
-            var bestSellers = db.Products.Where(p => p.BestSeller == true).ToList();
+            var bestSellers = db.Product.Where(p => p.BestSeller == true).ToList();
             return View(bestSellers);
         }
 
-        public ActionResult Top_saler()
+        public ActionResult Best_Seller_Products()
         {
-            var hotproducts = db.Products.Where(p => p.HotProduct == true).ToList();
+            var hotproducts = db.Product.Where(p => p.HotProduct == true).ToList();
             return View(hotproducts);
         }
    
@@ -123,11 +136,32 @@ namespace shoper.Controllers
            
             return View();
         }
+
         public ActionResult Product_Detail(int id)
         {
             ViewBag.ProductID = id;
-            var productDT = db.ProductDetailPages.ToList();
+            var productDT = db.ProductDetailPage.ToList();
             return View(productDT); // Truyền model tới view
+        }
+
+        public ActionResult Dress()
+        {
+            var dress = db.Product.Where(p => p.Dress == false).ToList();
+            if (dress == null)
+            {
+                dress = new List<Product>();
+            }
+            return View(dress);
+        }
+
+        public ActionResult Sexy_Nightgown()
+        {
+            var Sexy_Nightgown = db.Product.Where(p => p.Sexy_Nightgown == true).ToList();
+            if (Sexy_Nightgown == null)
+            {
+                Sexy_Nightgown = new List<Product>();
+            }
+            return View(Sexy_Nightgown);
         }
     }
 }
